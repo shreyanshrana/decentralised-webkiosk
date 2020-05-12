@@ -1,0 +1,37 @@
+@import "./styles/scrollbar.scss";
+@import "./styles/color.scss";
+
+//Semantic Font issue
+*:not(i) {
+  font-family: "rawline", sans-serif !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary-white;
+  color: $primary-black;
+}
+
+.perfectly-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column;
+}
+
+.clearfix {
+  overflow: auto;
+}
