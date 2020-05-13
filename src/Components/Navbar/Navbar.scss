@@ -1,1 +1,63 @@
 @import "../../main.scss";
+
+.Navbar {
+  background: $primary-white !important;
+  color: $primary-black !important;
+  height: 100%;
+  border-radius: 0 !important;
+  &__Logo {
+    height: 10%;
+    padding: 5px;
+    & img {
+      //   height: 25px;
+      width: 20%;
+    }
+    & h1 {
+      width: 80%;
+      display: inline-block;
+      font-size: 11px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &__Menu {
+    height: 80%;
+    width: 100% !important;
+    background: $primary-white !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    & div.item {
+      cursor: pointer;
+      //   width: 100% !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+      //   & a.item:hover {
+      //     background: transparent !important;
+      //   }
+    }
+    & div.active.item,
+    a.active.item {
+      background-color: rgba($primary, 0.15) !important;
+      color: $primary !important;
+      font-weight: bold !important;
+      border-radius: 0 !important;
+      div {
+        color: $primary !important;
+        font-weight: bold !important;
+      }
+    }
+    & .item {
+      color: $primary-black !important;
+      &::before {
+        background: transparent !important;
+      }
+    }
+  }
+  &__Logout {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: $primary;
+  }
+}

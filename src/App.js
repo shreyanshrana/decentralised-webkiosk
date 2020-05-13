@@ -1,11 +1,24 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
 import Routes from "./routes";
+import { Grid } from "semantic-ui-react";
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Routes />
+      <BrowserRouter>
+        <Grid style={{ margin: "0", padding: "0", height: "100%" }}>
+          <Grid.Row style={{ margin: "0", padding: "0", height: "100%" }}>
+            <Grid.Column width="2" style={{ padding: "0" }}>
+              <Navbar />
+            </Grid.Column>
+            <Grid.Column width="14">
+              <Routes />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </BrowserRouter>
     </div>
   );
 }
