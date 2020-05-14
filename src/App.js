@@ -1,6 +1,7 @@
 import React from "react";
 import Routes from "./routes";
 import { Grid } from "semantic-ui-react";
+import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
@@ -13,7 +14,8 @@ function App() {
             <Grid.Column width="2" style={{ padding: "0" }}>
               <Navbar />
             </Grid.Column>
-            <Grid.Column width="14">
+            <Grid.Column width="14" style={{ padding: "0" }}>
+              <Header />
               <Routes />
             </Grid.Column>
           </Grid.Row>

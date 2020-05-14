@@ -1,11 +1,13 @@
 import "./Navbar.scss";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { NavContext } from "../../context/NavContext";
 
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("dashboard");
+  // const [activeItem, setActiveItem] = useState("dashboard");
+  const { activeItem, setActiveItem } = useContext(NavContext);
 
   return (
     <React.Fragment>
@@ -39,24 +41,28 @@ const Navbar = () => {
             activeItem === "previous-srs" ||
             activeItem === "srs" ? (
               <Menu.Menu>
-                <Menu.Item
-                  name="fill-srs"
-                  active={activeItem === "fill-srs"}
-                  onClick={() => {
-                    setActiveItem("fill-srs");
-                  }}
-                >
-                  Fill SRS
-                </Menu.Item>
-                <Menu.Item
-                  name="previous-srs"
-                  active={activeItem === "previous-srs"}
-                  onClick={() => {
-                    setActiveItem("previous-srs");
-                  }}
-                >
-                  See Previous SRS
-                </Menu.Item>
+                <Link to="/fill-srs">
+                  <Menu.Item
+                    name="fill-srs"
+                    active={activeItem === "fill-srs"}
+                    onClick={() => {
+                      setActiveItem("fill-srs");
+                    }}
+                  >
+                    Fill SRS
+                  </Menu.Item>
+                </Link>
+                <Link to="/previous-srs">
+                  <Menu.Item
+                    name="previous-srs"
+                    active={activeItem === "previous-srs"}
+                    onClick={() => {
+                      setActiveItem("previous-srs");
+                    }}
+                  >
+                    See Previous SRS
+                  </Menu.Item>
+                </Link>
               </Menu.Menu>
             ) : (
               <React.Fragment />
@@ -78,7 +84,7 @@ const Navbar = () => {
             activeItem === "fee-receipt" ||
             activeItem == "fee" ? (
               <Menu.Menu>
-                <Link to="fee-section">
+                <Link to="pay-fee">
                   <Menu.Item
                     name="pay-fee"
                     active={activeItem === "pay-fee"}
@@ -89,15 +95,17 @@ const Navbar = () => {
                     Pay Fee Online
                   </Menu.Item>
                 </Link>
-                <Menu.Item
-                  name="fee-receipt"
-                  active={activeItem === "fee-receipt"}
-                  onClick={() => {
-                    setActiveItem("fee-receipt");
-                  }}
-                >
-                  Previous Fee Receipt
-                </Menu.Item>
+                <Link to="/fee-receipt">
+                  <Menu.Item
+                    name="fee-receipt"
+                    active={activeItem === "fee-receipt"}
+                    onClick={() => {
+                      setActiveItem("fee-receipt");
+                    }}
+                  >
+                    Previous Fee Receipt
+                  </Menu.Item>
+                </Link>
               </Menu.Menu>
             ) : (
               <React.Fragment />
