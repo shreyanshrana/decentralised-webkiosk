@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Image, GridColumn } from "semantic-ui-react";
 import { useState } from "react";
-
+import "./info.scss";
 const Info = (props) => {
   const [rollno, setRollno] = useState(props.rollno);
   const [name, setName] = useState(props.name);
@@ -11,31 +11,32 @@ const Info = (props) => {
   const [gradyear, setGradyear] = useState(props.year);
 
   return (
-    <Grid>
-      <Grid.Row>
-        <Grid.Column width="sixteen">
-          <h3>{name}</h3>
-        </Grid.Column>
-      </Grid.Row>
-      <div className="labels">
-        <Grid.Row>
-          <Grid.Column width="4">Enrollment Number</Grid.Column>
-          <Grid.Column width="4">Enrollment Email</Grid.Column>
-          <Grid.Column width="4">Graduation Degree</Grid.Column>
-          <Grid.Column width="4">Choice of Major</Grid.Column>
-          <Grid.Column width="4">Graduation Year</Grid.Column>
+    <div className="widget">
+      <Grid>
+        <Grid.Row className="Name">
+          <Grid.Column width="sixteen">
+            {name}
+            <div id="rectangle"></div>
+          </Grid.Column>
         </Grid.Row>
-      </div>
-      <div className="details">
-        <Grid.Row>
-          <Grid.Column width="4">{rollno}</Grid.Column>
-          <Grid.Column width="4">{email}</Grid.Column>
-          <Grid.Column width="4">{degree}</Grid.Column>
-          <Grid.Column width="4">{branch}</Grid.Column>
-          <Grid.Column width="4">{gradyear}</Grid.Column>
+
+        <Grid.Row className="labels">
+          <Grid.Column width="3">Enrollment Number</Grid.Column>
+          <Grid.Column width="3">Enrollment Email</Grid.Column>
+          <Grid.Column width="3">Graduation Degree</Grid.Column>
+          <Grid.Column width="3">Choice of Major</Grid.Column>
+          <Grid.Column width="3">Graduation Year</Grid.Column>
         </Grid.Row>
-      </div>
-    </Grid>
+
+        <Grid.Row className="details">
+          <Grid.Column width="3">{rollno}</Grid.Column>
+          <Grid.Column width="3">{email}</Grid.Column>
+          <Grid.Column width="3">{degree}</Grid.Column>
+          <Grid.Column width="3">{branch}</Grid.Column>
+          <Grid.Column width="3">{gradyear}</Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
   );
 };
 

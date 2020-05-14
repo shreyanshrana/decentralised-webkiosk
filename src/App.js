@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "semantic-ui-react";
 import Routes from "./routes";
@@ -14,7 +13,8 @@ function App() {
         rollno="101703329"
         email="mkcshs@gmail.com"
         branch="Computer Science"
-        gradyear="2021"
+        year="2021"
+        degree="Bachelor of Engineering"
       />
     </div>
   );

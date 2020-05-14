@@ -1,0 +1,46 @@
+@import "/home/manmeet/decentralised-webkiosk/src/main.scss";
+
+#rectangle {
+  background: #cb2d3e;
+  margin-top: 20px;
+
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 1800px;
+  height: 5px;
+}
+.widget {
+  background: #e5e5e5;
+  width: 2000px;
+  height: 242px;
+}
+
+.Name {
+  padding-bottom: 50px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+}
+.labels {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #4f4f4f;
+}
+.details {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #000000;
+}
