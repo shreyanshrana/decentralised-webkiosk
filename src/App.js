@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
+  const manmeet = {};
   return (
     <div className="App">
       <BrowserRouter>
