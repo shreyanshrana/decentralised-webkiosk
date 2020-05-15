@@ -1,5 +1,6 @@
 import React from "react";
 import Info from "../Components/Info/Info";
+import MPWidget from "../Components/MarksPrevWdgt/MarksPrevWdgt";
 import { Grid } from "semantic-ui-react";
 
 const Dashboard = () => {
@@ -26,6 +27,13 @@ const Dashboard = () => {
             <Grid.Column width="14"></Grid.Column>
             <Grid.Column width="1"></Grid.Column>
           </Grid.Row>
+
+          <Grid.Row>
+            <Grid.Column width="16">
+              <MPWidget />
+            </Grid.Column>
+          </Grid.Row>
+          
         </Grid>
       </div>
     </React.Fragment>
