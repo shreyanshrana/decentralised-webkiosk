@@ -8,7 +8,7 @@ const Dashboard = () => {
     <React.Fragment>
       <div style={{ height: "94%" }}>
         <Grid>
-          <Grid.Row style={{ padding: "20px 25px" }}>
+          <Grid.Row style={{ padding: "15px", paddingBottom: "0" }}>
             {/* <Grid.Column width="1"></Grid.Column>
             <Grid.Column width="14"> */}
             <Info
@@ -23,17 +23,13 @@ const Dashboard = () => {
             <Grid.Column width="1"></Grid.Column> */}
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column width="1"></Grid.Column>
-            <Grid.Column width="14"></Grid.Column>
-            <Grid.Column width="1"></Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column width="16">
+            <Grid.Column
+              width="8"
+              style={{ padding: "15px", paddingBottom: "0" }}
+            >
               <MPWidget />
             </Grid.Column>
           </Grid.Row>
-          
         </Grid>
       </div>
     </React.Fragment>
