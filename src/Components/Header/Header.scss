@@ -1,0 +1,15 @@
+@import "../../main.scss";
+
+.Header {
+  box-shadow: 35px 10px 45px rgba($primary, 0.15);
+  background: $primary-white;
+  padding: 10px 20px;
+  font-size: 20px;
+  // height: 8%;
+  font-weight: bold;
+
+  i {
+    color: $primary;
+    float: right;
+  }
+}

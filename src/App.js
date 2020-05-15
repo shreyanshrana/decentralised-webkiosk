@@ -1,21 +1,27 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
 import Routes from "./routes";
-import Info from "./Components/Info/info.js";
+import { Grid } from "semantic-ui-react";
+import Header from "./Components/Header/Header";
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const manmeet = {};
   return (
     <div className="App">
-      <Routes />
-      <Info
-        name="Manmeet"
-        rollno="101703329"
-        email="mkcshs@gmail.com"
-        branch="Computer Science"
-        year="2021"
-        degree="Bachelor of Engineering"
-      />
+      <BrowserRouter>
+        <Grid style={{ margin: "0", padding: "0", height: "100%" }}>
+          <Grid.Row style={{ margin: "0", padding: "0", height: "100%" }}>
+            <Grid.Column width="2" style={{ padding: "0" }}>
+              <Navbar />
+            </Grid.Column>
+            <Grid.Column width="14" style={{ padding: "0" }}>
+              <Header />
+              <Routes />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </BrowserRouter>
     </div>
   );
 }

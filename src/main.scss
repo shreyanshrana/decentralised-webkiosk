@@ -15,10 +15,15 @@
 
 a {
   color: inherit;
+  &:focus {
+    outline: none;
+  }
 }
 
 html,
-body {
+body,
+#root,
+.App {
   height: 100%;
   width: 100%;
   background-color: $secondary-white;
