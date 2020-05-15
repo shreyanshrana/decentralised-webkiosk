@@ -1,0 +1,34 @@
+@import "../../main.scss";
+
+.AttendancePreview {
+  height: 100%;
+  padding: 10px;
+  box-shadow: 10px 0px 45px rgba($primary, 0.05);
+
+  &__Title {
+    font-weight: bold;
+    font-size: 22px;
+    padding: 1rem;
+  }
+  &__hrLine {
+    padding: 1rem;
+    background: $primary;
+    // padding: 0 !important;
+    width: 90%;
+    height: 1.5px;
+  }
+  &__ProgressBar {
+    width: 42%;
+    .CircularProgressbar-path {
+      stroke: $primary !important;
+    }
+    .CircularProgressbar-trail {
+      stroke: rgba($secondary, 0.3) !important;
+    }
+    .CircularProgressbar-text {
+      fill: $primary-black !important;
+      font-weight: bold;
+    }
+  }
+  background: $primary-white;
+}

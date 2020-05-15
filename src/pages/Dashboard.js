@@ -2,6 +2,7 @@ import React from "react";
 import Info from "../Components/Info/Info";
 import MPWidget from "../Components/MarksPrevWdgt/MarksPrevWdgt";
 import { Grid } from "semantic-ui-react";
+import AttendancePreview from "../Components/AttendancePreview/AttendancePreview";
 
 const Dashboard = () => {
   return (
@@ -22,11 +23,11 @@ const Dashboard = () => {
             {/* </Grid.Column>
             <Grid.Column width="1"></Grid.Column> */}
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column
-              width="8"
-              style={{ padding: "15px", paddingBottom: "0" }}
-            >
+          <Grid.Row style={{ padding: "15px", paddingBottom: "0" }}>
+            <Grid.Column width="6" style={{ paddingLeft: "0" }}>
+              <AttendancePreview present="10" total="20" />
+            </Grid.Column>
+            <Grid.Column width="10" style={{ paddingRight: "0" }}>
               <MPWidget />
             </Grid.Column>
           </Grid.Row>

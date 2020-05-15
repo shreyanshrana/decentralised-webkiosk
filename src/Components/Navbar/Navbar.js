@@ -1,6 +1,6 @@
 import "./Navbar.scss";
 
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { NavContext } from "../../context/NavContext";
@@ -13,7 +13,7 @@ const Navbar = () => {
     <React.Fragment>
       <div className="Navbar">
         <div className="Navbar__Logo">
-          <img src="./img/tiet_logo.svg" />
+          <img src="./img/tiet_logo.svg" alt="Logo" />
           <h1>Thapar Institue of Engineering & Technology</h1>
         </div>
         <Menu vertical className="Navbar__Menu">
@@ -73,7 +73,7 @@ const Navbar = () => {
             active={
               activeItem === "pay-fee" ||
               activeItem === "fee-receipt" ||
-              activeItem == "fee"
+              activeItem === "fee"
             }
           >
             <div className="item" onClick={() => setActiveItem("fee")}>
@@ -82,7 +82,7 @@ const Navbar = () => {
             </div>
             {activeItem === "pay-fee" ||
             activeItem === "fee-receipt" ||
-            activeItem == "fee" ? (
+            activeItem === "fee" ? (
               <Menu.Menu>
                 <Link to="pay-fee">
                   <Menu.Item

@@ -1,6 +1,7 @@
 @import "../../main.scss";
 
 .MPWidget {
+  height: 100%;
   box-shadow: 10px 0px 45px rgba($primary, 0.05);
   background: $primary-white;
   // width: 50% !important;
