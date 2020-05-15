@@ -1,6 +1,7 @@
 @import "../../main.scss";
 
 .Navbar {
+  overflow: hidden;
   box-shadow: 10px 0px 45px rgba($primary, 0.15);
   background: $primary-white !important;
   color: $primary-black !important;
@@ -29,6 +30,9 @@
     box-shadow: none !important;
     border: 0 !important;
     border-radius: 0 !important;
+    &.ui.menu .item {
+      padding: 10px !important;
+    }
     & div.item {
       cursor: pointer;
       //   width: 100% !important;

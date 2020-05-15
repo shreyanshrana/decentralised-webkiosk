@@ -30,6 +30,10 @@ body,
   color: $primary-black;
 }
 
+.ui.grid {
+  margin: 0 !important;
+}
+
 .perfectly-center {
   display: flex !important;
   align-items: center !important;

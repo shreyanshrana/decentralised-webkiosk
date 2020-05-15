@@ -1,0 +1,39 @@
+@import "../../main.scss";
+
+.InfoWidget {
+  box-shadow: 10px 0px 45px rgba($primary, 0.05);
+  background: $primary-white;
+  width: 100% !important;
+  // height: 242px;
+  padding: 10px;
+
+  &__Rectangle {
+    background: $primary;
+    padding: 0 !important;
+    width: 95%;
+    height: 1.5px;
+  }
+
+  &__Name {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  &__Labels,
+  &__Details {
+    // margin: 0 2.5%;
+    // font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    // line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    overflow-wrap: break-word;
+    color: $secondary-black;
+  }
+  &__Details {
+    font-weight: bold;
+    color: $primary-black;
+  }
+}
