@@ -1,0 +1,50 @@
+@import "../../main.scss";
+
+.MPWidget
+{
+    box-shadow: 10px 0px 45px rgba($primary, 0.05);
+    background: $primary-white;
+    width: 50% !important;
+    padding: 10px;
+
+    &__recentMarks
+    {
+        font-weight: bold;
+        font-size: 22px;
+        
+    }
+    &__hrLine
+    {
+        background: $primary;
+        padding: 0 !important;
+        width: 95%;
+        align: center;
+        height: 1.5px;
+    }
+    
+    &__colNames,&__colInfo
+    {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        overflow-wrap: break-word;
+        color: $secondary-black;
+    }
+
+    &__colNames
+    {
+        font-weight: bold;
+        color: $primary-black;
+    }
+
+    &__button
+    {
+        
+    }
+
+}
+
+
