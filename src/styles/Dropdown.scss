@@ -1,0 +1,16 @@
+//Style the dropdown from semantic ui
+
+@import "./color.scss";
+
+.dropdown {
+  background-color: $primary !important;
+  color: $primary-white !important;
+  font-weight: 700;
+  .default.text {
+    color: $primary-white !important;
+    // font-weight: 700;
+  }
+  .visible.menu {
+    background-color: $primary-white !important;
+  }
+}

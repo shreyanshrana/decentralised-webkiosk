@@ -1,8 +1,9 @@
 @import "./styles/scrollbar.scss";
 @import "./styles/color.scss";
+@import "./styles/Dropdown.scss";
 
 //Semantic Font issue
-*:not(i) {
+* :not(i) {
   font-family: "rawline", sans-serif !important;
 }
 
