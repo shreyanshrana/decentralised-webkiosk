@@ -4,6 +4,7 @@ import FeePayment from "./pages/FeePayment";
 import Dashboard from "./pages/Dashboard";
 import FeeReceipt from "./pages/FeeReceipt";
 import ExamMarks from "./pages/ExamMarks";
+import ExamGrades from "./pages/ExamGrades";
 
 const Routes = () => {
   return (
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route path="/pay-fee" component={FeePayment} />
       <Route path="/fee-receipt" component={FeeReceipt} />
       <Route path="/exam-marks" component={ExamMarks} />
+      <Route path="/exam-grades" component={ExamGrades} />
     </Switch>
   );
 };

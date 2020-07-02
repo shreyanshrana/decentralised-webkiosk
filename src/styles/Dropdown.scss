@@ -3,14 +3,17 @@
 @import "./color.scss";
 
 .dropdown {
+  text-align: center !important;
   background-color: $primary !important;
   color: $primary-white !important;
   font-weight: 700;
   .default.text {
     color: $primary-white !important;
+    text-align: center;
     // font-weight: 700;
   }
   .visible.menu {
+    text-align: center;
     background-color: $primary-white !important;
   }
 }
