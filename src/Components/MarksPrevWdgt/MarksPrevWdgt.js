@@ -1,8 +1,9 @@
 import "./MarksPrevWdgt.scss";
 
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { NavContext } from "../../context/NavContext";
 
 function Grow(props) {
   return (
@@ -15,6 +16,8 @@ function Grow(props) {
   );
 }
 function MPWdgt() {
+  const { setActiveItem } = useContext(NavContext);
+
   return (
     <div className="MPWidget clearfix">
       <Grid>
@@ -38,7 +41,14 @@ function MPWdgt() {
         <Grow cc="UCS555" et="MST" mo="25" mm="50" />
       </Grid>
       <Link to="/exam-marks">
-        <Button className="MPWidget__button" primary floated="right">
+        <Button
+          className="MPWidget__button"
+          primary
+          floated="right"
+          onClick={() => {
+            setActiveItem("exam-marks");
+          }}
+        >
           See Detailed
         </Button>
       </Link>
