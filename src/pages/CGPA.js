@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Grid, Dropdown } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../Components/KioskTable/KioskTable";
 
 const CGPA = () => {
-  const [session, setSession] = useState("1920EVENSEM");
+  const [session] = useState("1920EVENSEM");
 
   return (
     <React.Fragment>

@@ -40,7 +40,7 @@ export const KioskTable = (props) => {
           );
         })}
       </Grid>
-      {props.tableButton != undefined && props.tableButton.length > 0 ? (
+      {props.tableButton !== undefined && props.tableButton.length > 0 ? (
         <div className="KioskTable__Button-Container">
           <button className="KioskTable__Button">{props.tableButton}</button>
         </div>
