@@ -2,6 +2,7 @@ import "./MarksPrevWdgt.scss";
 
 import React from "react";
 import { Grid, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 function Grow(props) {
   return (
@@ -36,9 +37,11 @@ function MPWdgt() {
         <Grow cc="UCS555" et="MST" mo="25" mm="50" />
         <Grow cc="UCS555" et="MST" mo="25" mm="50" />
       </Grid>
-      <Button className="MPWidget__button" primary floated="right">
-        See Detailed
-      </Button>
+      <Link to="/exam-marks">
+        <Button className="MPWidget__button" primary floated="right">
+          See Detailed
+        </Button>
+      </Link>
     </div>
   );
 }

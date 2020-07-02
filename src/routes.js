@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import FeeReceipt from "./pages/FeeReceipt";
 import ExamMarks from "./pages/ExamMarks";
 import ExamGrades from "./pages/ExamGrades";
+import CGPA from "./pages/CGPA";
 
 const Routes = () => {
   return (
@@ -14,6 +15,7 @@ const Routes = () => {
       <Route path="/fee-receipt" component={FeeReceipt} />
       <Route path="/exam-marks" component={ExamMarks} />
       <Route path="/exam-grades" component={ExamGrades} />
+      <Route path="/cgpa" component={CGPA} />
     </Switch>
   );
 };

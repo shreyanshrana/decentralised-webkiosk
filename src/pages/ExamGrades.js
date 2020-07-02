@@ -67,19 +67,26 @@ const ExamGrades = () => {
           <Grid.Column width="14">
             <KioskTable
               tableTitle="Your Performance"
-              tableColWidth={[1, 5, 7, 3]}
+              tableColWidth={[1, 3, 6, 3, 3]}
               tableHead={[
                 "S.No.",
                 "Course Code",
                 "Course Name",
                 "Grade Obtained",
+                "Credits",
               ]}
               tableData={[
-                ["1", "UCS616", "Artificial Intelligence", "C"],
-                ["2", "UCS616", "Artificial Intelligence", "C"],
-                ["3", "UCS616", "Artificial Intelligence", "C"],
-                ["4", "UCS616", "Artificial Intelligence", "C"],
-                ["5", "UCS619", "Computer Architecture & Organisation", "D"],
+                ["1", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["2", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["3", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["4", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                [
+                  "5",
+                  "UCS619",
+                  "Computer Architecture & Organisation",
+                  "D",
+                  "4.5",
+                ],
               ]}
             />
           </Grid.Column>
