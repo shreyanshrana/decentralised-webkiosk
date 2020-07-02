@@ -1,0 +1,55 @@
+@import "../../styles/color.scss";
+
+.KioskTable {
+  //   width: 80%;
+  height: auto;
+  padding: 1em !important;
+  padding-top: 0 !important;
+  background-color: $primary-white;
+  box-shadow: 10px 0px 45px rgba($primary, 0.15);
+  text-align: center;
+
+  &__Title {
+    color: $primary-white;
+    width: 100%;
+    text-align: center;
+    h3 {
+      background-color: $primary;
+      width: fit-content;
+      padding: 5px 10px;
+    }
+  }
+  &__Header {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__hr {
+    border-color: $primary;
+    width: 100%;
+  }
+  &__Data {
+    text-align: center;
+  }
+  &__Button {
+    text-align: center;
+    border: 0;
+    background-color: $primary;
+    color: $primary-white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 7.5px 15px;
+    box-shadow: 10px 0px 45px rgba($primary, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 5px 0px 25px rgba($primary, 0.55);
+    }
+    &-Container {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+}
