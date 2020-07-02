@@ -35,7 +35,7 @@ const AcademicSessions = [
     value: "1920EVENSEM",
   },
 ];
-const FeeReceipt = () => {
+const ExamMarks = () => {
   const [session, setSession] = useState("1920EVENSEM");
 
   return (
@@ -63,27 +63,40 @@ const FeeReceipt = () => {
           />
         </Grid.Row>
         <Grid.Row style={{ height: "85%" }}>
-          <Grid.Column width="2"></Grid.Column>
-          <Grid.Column width="12">
+          <Grid.Column width="1"></Grid.Column>
+          <Grid.Column width="14">
             <KioskTable
-              tableTitle="Fee Receipt"
-              tableColWidth={[4, 8, 4]}
-              tableHead={["S.No.", "Section", "Fee"]}
-              tableData={[
-                ["1", "Academic", "1000"],
-                ["2", "Academic", "1000"],
-                ["3", "Academic", "1000"],
-                ["4", "Academic", "1000"],
-                ["5", "Ninja Skillz", "69"],
+              tableTitle="Your Performance"
+              tableColWidth={[1, 4, 5, 2, 2, 2]}
+              tableHead={[
+                "S.No.",
+                "Course Code",
+                "Course Name",
+                "Exam Type",
+                "Obtained Marks",
+                "Effective Marks",
               ]}
-              tableButton="Download as PDF"
+              tableData={[
+                ["1", "UCS616", "Artificial Intelligence", "MST", "100", "25"],
+                ["2", "UCS616", "Artificial Intelligence", "MST", "100", "25"],
+                ["3", "UCS616", "Artificial Intelligence", "MST", "100", "25"],
+                ["4", "UCS616", "Artificial Intelligence", "MST", "100", "25"],
+                [
+                  "5",
+                  "UCS619",
+                  "Computer Architecture & Organisation",
+                  "EST",
+                  "100",
+                  "35",
+                ],
+              ]}
             />
           </Grid.Column>
-          <Grid.Column width="2"></Grid.Column>
+          <Grid.Column width="1"></Grid.Column>
         </Grid.Row>
       </Grid>
     </React.Fragment>
   );
 };
 
-export default FeeReceipt;
+export default ExamMarks;

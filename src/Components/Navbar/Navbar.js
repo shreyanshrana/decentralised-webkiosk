@@ -25,7 +25,7 @@ const Navbar = () => {
               </div>
             </Link>
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             name="srs"
             active={
               activeItem === "fill-srs" ||
@@ -67,9 +67,9 @@ const Navbar = () => {
             ) : (
               <React.Fragment />
             )}
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item
-            name="srs"
+            name="fee"
             active={
               activeItem === "pay-fee" ||
               activeItem === "fee-receipt" ||
@@ -104,6 +104,62 @@ const Navbar = () => {
                     }}
                   >
                     Previous Fee Receipt
+                  </Menu.Item>
+                </Link>
+              </Menu.Menu>
+            ) : (
+              <React.Fragment />
+            )}
+          </Menu.Item>
+          <Menu.Item
+            name="marks"
+            active={
+              activeItem === "exam-marks" ||
+              activeItem === "exam-grades" ||
+              activeItem === "cgpa" ||
+              activeItem === "marks"
+            }
+          >
+            <div className="item" onClick={() => setActiveItem("marks")}>
+              <Icon name="tasks" />
+              Academics
+            </div>
+            {activeItem === "exam-marks" ||
+            activeItem === "exam-grades" ||
+            activeItem === "cgpa" ||
+            activeItem === "marks" ? (
+              <Menu.Menu>
+                <Link to="/exam-marks">
+                  <Menu.Item
+                    name="exam-marks"
+                    active={activeItem === "exam-marks"}
+                    onClick={() => {
+                      setActiveItem("exam-marks");
+                    }}
+                  >
+                    Exam Marks
+                  </Menu.Item>
+                </Link>
+                <Link to="/exam-grades">
+                  <Menu.Item
+                    name="exam-grades"
+                    active={activeItem === "exam-grades"}
+                    onClick={() => {
+                      setActiveItem("exam-grades");
+                    }}
+                  >
+                    Exam Grades
+                  </Menu.Item>
+                </Link>
+                <Link to="/cgpa">
+                  <Menu.Item
+                    name="cgpa"
+                    active={activeItem === "cgpa"}
+                    onClick={() => {
+                      setActiveItem("cgpa");
+                    }}
+                  >
+                    View CGPA/SGPA
                   </Menu.Item>
                 </Link>
               </Menu.Menu>

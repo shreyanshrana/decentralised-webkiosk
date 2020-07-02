@@ -21,6 +21,7 @@ const FeePayment = () => {
           <Grid.Column width="12">
             <KioskTable
               tableTitle="Pay Fee Online"
+              tableColWidth={[4, 8, 4]}
               tableHead={["S.No.", "Section", "Fee"]}
               tableData={[
                 ["1", "Academic", "1000"],

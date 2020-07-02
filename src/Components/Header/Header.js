@@ -30,6 +30,18 @@ const Header = () => {
     case "fee":
       title = "Fee Section";
       break;
+    case "marks":
+      title = "Academics";
+      break;
+    case "exam-marks":
+      title = "Exam Marks";
+      break;
+    case "exam-grades":
+      title = "Exam Grades";
+      break;
+    case "cgpa":
+      title = "CGPA/SGPA";
+      break;
     default:
       title = activeItem;
   }

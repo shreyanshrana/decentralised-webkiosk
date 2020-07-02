@@ -10,10 +10,10 @@ export const KioskTable = (props) => {
           <h3>{props.tableTitle}</h3>
         </div>
         <Grid.Row className="perfectly-center">
-          {props.tableHead.map((elem) => {
+          {props.tableHead.map((elem, index) => {
             return (
               <Grid.Column
-                width={Math.floor(16 / props.tableHead.length)}
+                width={props.tableColWidth[index]}
                 className="KioskTable__Header"
               >
                 {elem}
@@ -26,10 +26,10 @@ export const KioskTable = (props) => {
           console.log(row);
           return (
             <Grid.Row className="perfectly-center">
-              {row.map((elem) => {
+              {row.map((elem, index) => {
                 return (
                   <Grid.Column
-                    width={Math.floor(16 / props.tableHead.length)}
+                    width={props.tableColWidth[index]}
                     className="KioskTable__Data"
                   >
                     {elem}
@@ -40,9 +40,13 @@ export const KioskTable = (props) => {
           );
         })}
       </Grid>
-      <div className="KioskTable__Button-Container">
-        <button className="KioskTable__Button">{props.tableButton}</button>
-      </div>
+      {props.tableButton != undefined && props.tableButton.length > 0 ? (
+        <div className="KioskTable__Button-Container">
+          <button className="KioskTable__Button">{props.tableButton}</button>
+        </div>
+      ) : (
+        <React.Fragment />
+      )}
     </React.Fragment>
   );
 };
