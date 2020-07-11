@@ -1,0 +1,48 @@
+@import "./color.scss";
+
+.Login {
+  height: 100vh;
+  &__Graphic {
+    height: 100%;
+    width: 100%;
+    padding: 0 !important;
+    &-BG {
+      background-image: url("../img/thapar.jpg"),
+        linear-gradient(rgba($primary, 0.5), rgba($primary, 0.1));
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
+      filter: blur(7.5px);
+      -webkit-filter: blur(7.5px);
+      height: 100%;
+      width: 100%;
+    }
+    &-Logo {
+      position: absolute;
+      //   height: 200px;
+      //   width: 200px;
+      z-index: 100;
+      border-radius: 20px;
+      background-color: white;
+      padding: 10px;
+      text-align: center;
+      img {
+        height: 175px;
+      }
+      h3 {
+        text-align: left;
+        font-weight: bold;
+        // font-size: 10px;
+      }
+    }
+  }
+  &__Form {
+    &-CenterButton {
+      text-align: center;
+      button {
+        background-color: $primary !important;
+        color: $primary-white !important;
+      }
+    }
+  }
+}

@@ -24,10 +24,12 @@ const AttendancePreview = (props) => {
             </div>
           </Grid.Row>
           <Grid.Row className="perfectly-center">
-            <h3>Classes Attended = 56/22</h3>
+            <h3>
+              Classes Attended = {props.present}/{props.total}
+            </h3>
           </Grid.Row>
         </Grid>
-        <Button className="MPWidget__button" primary floated="right">
+        <Button className="MPWidget__button" primary floated="right" disabled>
           See Detailed
         </Button>
       </div>

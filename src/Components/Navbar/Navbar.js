@@ -5,7 +5,7 @@ import { Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { NavContext } from "../../context/NavContext";
 
-const Navbar = () => {
+const Navbar = (props) => {
   // const [activeItem, setActiveItem] = useState("dashboard");
   const { activeItem, setActiveItem } = useContext(NavContext);
 
@@ -168,7 +168,7 @@ const Navbar = () => {
             )}
           </Menu.Item>
         </Menu>
-        <div className="Navbar__Logout">
+        <div style={{ cursor: "pointer" }} className="Navbar__Logout">
           <Icon name="power" />
           Logout
         </div>

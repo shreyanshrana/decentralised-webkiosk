@@ -4,7 +4,6 @@ import { KioskTable } from "../Components/KioskTable/KioskTable";
 
 const CGPA = () => {
   const [session] = useState("1920EVENSEM");
-
   return (
     <React.Fragment>
       <Grid style={{ height: "94%" }}>
