@@ -28,7 +28,7 @@ const FeePayment = () => {
                 ["2", "Academic", "1000"],
                 ["3", "Academic", "1000"],
                 ["4", "Academic", "1000"],
-                ["5", "Ninja Skillz", "69"],
+                ["5", "Development", "500"],
               ]}
               tableButton="Pay Fees"
             />
