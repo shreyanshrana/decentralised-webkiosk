@@ -6,6 +6,8 @@ import FeeReceipt from "./pages/FeeReceipt";
 import ExamMarks from "./pages/ExamMarks";
 import ExamGrades from "./pages/ExamGrades";
 import CGPA from "./pages/CGPA";
+import SRS from "./pages/SRS";
+import PrevSRS from "./pages/PrevSRS";
 
 const Routes = () => {
   return (
@@ -16,6 +18,8 @@ const Routes = () => {
       <Route path="/exam-marks" component={ExamMarks} />
       <Route path="/exam-grades" component={ExamGrades} />
       <Route path="/cgpa" component={CGPA} />
+      <Route path="/fill-srs" component={SRS} />
+      <Route path="/previous-srs" component={PrevSRS} />
     </Switch>
   );
 };

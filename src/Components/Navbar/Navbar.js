@@ -25,7 +25,7 @@ const Navbar = (props) => {
               </div>
             </Link>
           </Menu.Item>
-          {/* <Menu.Item
+          <Menu.Item
             name="srs"
             active={
               activeItem === "fill-srs" ||
@@ -67,7 +67,7 @@ const Navbar = (props) => {
             ) : (
               <React.Fragment />
             )}
-          </Menu.Item> */}
+          </Menu.Item>
           <Menu.Item
             name="fee"
             active={
