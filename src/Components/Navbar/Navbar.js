@@ -114,6 +114,8 @@ const Navbar = (props) => {
           <Menu.Item
             name="marks"
             active={
+              activeItem === "time-table" ||
+              activeItem === "exam-schedule" ||
               activeItem === "exam-marks" ||
               activeItem === "exam-grades" ||
               activeItem === "cgpa" ||
@@ -124,11 +126,35 @@ const Navbar = (props) => {
               <Icon name="tasks" />
               Academics
             </div>
-            {activeItem === "exam-marks" ||
+            {activeItem === "time-table" ||
+            activeItem === "exam-schedule" ||
+            activeItem === "exam-marks" ||
             activeItem === "exam-grades" ||
             activeItem === "cgpa" ||
             activeItem === "marks" ? (
               <Menu.Menu>
+                <Link to="/time-table">
+                  <Menu.Item
+                    name="time-table"
+                    active={activeItem === "time-table"}
+                    onClick={() => {
+                      setActiveItem("time-table");
+                    }}
+                  >
+                    Time Table
+                  </Menu.Item>
+                </Link>
+                <Link to="/exam-schedule">
+                  <Menu.Item
+                    name="exam-schedule"
+                    active={activeItem === "exam-schedule"}
+                    onClick={() => {
+                      setActiveItem("exam-schedule");
+                    }}
+                  >
+                    Exam Schedule
+                  </Menu.Item>
+                </Link>
                 <Link to="/exam-marks">
                   <Menu.Item
                     name="exam-marks"
@@ -160,6 +186,49 @@ const Navbar = (props) => {
                     }}
                   >
                     View CGPA/SGPA
+                  </Menu.Item>
+                </Link>
+              </Menu.Menu>
+            ) : (
+              <React.Fragment />
+            )}
+          </Menu.Item>
+          <Menu.Item
+            name="student"
+            active={
+              activeItem === "hostel-allotment" ||
+              activeItem === "student" ||
+              activeItem === "student-info"
+            }
+          >
+            <div className="item" onClick={() => setActiveItem("student")}>
+              <Icon name="id badge" />
+              Student
+            </div>
+            {activeItem === "hostel-allotment" ||
+            activeItem === "student" ||
+            activeItem === "student-info" ? (
+              <Menu.Menu>
+                <Link to="/hostel-allotment">
+                  <Menu.Item
+                    name="hostel-allotment"
+                    active={activeItem === "hostel-allotment"}
+                    onClick={() => {
+                      setActiveItem("hostel-allotment");
+                    }}
+                  >
+                    Hostel Allotment
+                  </Menu.Item>
+                </Link>
+                <Link to="/student-info">
+                  <Menu.Item
+                    name="student-info"
+                    active={activeItem === "student-info"}
+                    onClick={() => {
+                      setActiveItem("student-info");
+                    }}
+                  >
+                    Student's Info
                   </Menu.Item>
                 </Link>
               </Menu.Menu>

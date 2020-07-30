@@ -42,6 +42,15 @@ const Header = () => {
     case "cgpa":
       title = "CGPA/SGPA";
       break;
+    case "time-table":
+      title = "Time Table";
+      break;
+    case "hostel-allotment":
+      title = "Hostel Allotment";
+      break;
+    case "student-info":
+      title = "Student's Info";
+      break;
     default:
       title = activeItem;
   }

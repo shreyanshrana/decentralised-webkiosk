@@ -3,7 +3,7 @@ import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../Components/KioskTable/KioskTable";
 
 const CGPA = () => {
-  const [session] = useState("1920EVENSEM");
+  const [session] = useState("2021ODDSEM");
   return (
     <React.Fragment>
       <Grid style={{ height: "94%" }}>

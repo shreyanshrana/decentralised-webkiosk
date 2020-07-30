@@ -148,7 +148,13 @@ const AcademicSessions = [
   },
 ];
 
-let table = [["1", "Did the teacher use any digital medium to teach ?", "5"]];
+let table = [
+  ["1", "Did the teacher use any digital medium to teach ?", "5"],
+  ["1", "Did the teacher use any digital medium to teach ?", "5"],
+  ["1", "Did the teacher use any digital medium to teach ?", "5"],
+  ["1", "Did the teacher use any digital medium to teach ?", "5"],
+  ["1", "Did the teacher use any digital medium to teach ?", "5"],
+];
 const PrevSRS = () => {
   const [session, setSession] = useState("1920EVENSEM");
   const [subject, setSubject] = useState("");
@@ -157,7 +163,7 @@ const PrevSRS = () => {
   console.log("subjects : ", subjects[0][session]);
   return (
     <React.Fragment>
-      <Grid style={{ height: "94%" }}>
+      <Grid>
         <Grid.Row
           style={{
             height: "10%",

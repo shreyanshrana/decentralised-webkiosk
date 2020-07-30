@@ -8,6 +8,10 @@ import ExamGrades from "./pages/ExamGrades";
 import CGPA from "./pages/CGPA";
 import SRS from "./pages/SRS";
 import PrevSRS from "./pages/PrevSRS";
+import TimeTable from "./pages/TimeTable";
+import ExamSchedule from "./pages/ExamSchedule";
+import HostelAllotment from "./pages/HostelAllotment";
+import StudentInfo from "./pages/StudentInfo";
 
 const Routes = () => {
   return (
@@ -20,6 +24,10 @@ const Routes = () => {
       <Route path="/cgpa" component={CGPA} />
       <Route path="/fill-srs" component={SRS} />
       <Route path="/previous-srs" component={PrevSRS} />
+      <Route path="/time-table" component={TimeTable} />
+      <Route path="/exam-schedule" component={ExamSchedule} />
+      <Route path="/hostel-allotment" component={HostelAllotment} />
+      <Route path="/student-info" component={StudentInfo} />
     </Switch>
   );
 };

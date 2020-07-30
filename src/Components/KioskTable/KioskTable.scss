@@ -2,12 +2,13 @@
 
 .KioskTable {
   //   width: 80%;
-  height: auto;
+  max-height: 550px;
   padding: 1em !important;
   padding-top: 0 !important;
   background-color: $primary-white;
   box-shadow: 10px 0px 45px rgba($primary, 0.15);
   text-align: center;
+  overflow-y: auto;
 
   &__Title {
     color: $primary-white;
