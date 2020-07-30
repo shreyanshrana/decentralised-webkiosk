@@ -1,25 +1,6 @@
 import React, { useState } from "react";
-import { Form, Radio, Grid, Button } from "semantic-ui-react";
+import { Radio, Grid, Button } from "semantic-ui-react";
 
-let hostels = [
-  {
-    key: "Hostel M",
-    text: "Hostel M",
-    value: "M",
-  },
-
-  {
-    key: "Hostel H",
-    text: "Hostel H",
-    value: "H",
-  },
-
-  {
-    key: "Hostel A",
-    text: "Hostel A",
-    value: "A",
-  },
-];
 const HostelAllotment = () => {
   const [hostel1, setHostel1] = useState("");
   const [hostel2, setHostel2] = useState("");

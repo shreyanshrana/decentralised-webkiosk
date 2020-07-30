@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
-import SRSQuestions from "../Components/SRSQuestions/SRSQuestions";
+import SRSQuestions from "../../Components/SRSQuestions/SRSQuestions";
 
 const Teachers = [
   {

@@ -51,6 +51,13 @@ const Header = () => {
     case "student-info":
       title = "Student's Info";
       break;
+    //Teachers
+    case "srs-details":
+      title = "SRS Details";
+      break;
+    case "academic-records":
+      title = "Academic Records";
+      break;
     default:
       title = activeItem;
   }

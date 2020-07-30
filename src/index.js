@@ -4,12 +4,15 @@ import NavContextProvider from "./context/NavContext";
 import "./main.scss";
 import App from "./App";
 import "semantic-ui-less/semantic.less";
+import UserContextProvider from "./context/UserContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavContextProvider>
-      <App />
-    </NavContextProvider>
+    <UserContextProvider>
+      <NavContextProvider>
+        <App />
+      </NavContextProvider>
+    </UserContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

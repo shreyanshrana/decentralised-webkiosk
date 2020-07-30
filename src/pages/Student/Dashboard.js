@@ -1,8 +1,8 @@
 import React from "react";
-import Info from "../Components/Info/Info";
-import MPWidget from "../Components/MarksPrevWdgt/MarksPrevWdgt";
+import Info from "../../Components/Info/Info";
+import MPWidget from "../../Components/MarksPrevWdgt/MarksPrevWdgt";
 import { Grid } from "semantic-ui-react";
-import AttendancePreview from "../Components/AttendancePreview/AttendancePreview";
+import AttendancePreview from "../../Components/AttendancePreview/AttendancePreview";
 
 const Dashboard = () => {
   return (

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Routes from "./routes";
 import { Grid } from "semantic-ui-react";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
+import { UserContext } from "./context/UserContext";
 
 const Comp = () => {
   return (
@@ -23,12 +24,17 @@ const Comp = () => {
 };
 
 function App() {
+  const { userType } = useContext(UserContext);
+  console.log(userType);
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/Login" component={Login} />
-          <Route path="/" component={Comp} />
+          {userType === "new" ? (
+            <Route path="/" component={Login} />
+          ) : (
+            <Route path="/" component={Comp} />
+          )}
         </Switch>
       </BrowserRouter>
     </div>

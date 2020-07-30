@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
-import { KioskTable } from "../Components/KioskTable/KioskTable";
+import { KioskTable } from "../../Components/KioskTable/KioskTable";
 
 const Ques_L = [
   ["1", "Did the teacher use any digital medium to teach ?", "5"],

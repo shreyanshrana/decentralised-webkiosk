@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
-import { KioskTable } from "../Components/KioskTable/KioskTable";
+import { KioskTable } from "../../Components/KioskTable/KioskTable";
 
 const AcademicSessions = [
   {
@@ -35,7 +35,7 @@ const AcademicSessions = [
     value: "1920EVENSEM",
   },
 ];
-const FeeReceipt = () => {
+const ExamGrades = () => {
   const [session, setSession] = useState("1920EVENSEM");
 
   return (
@@ -63,27 +63,38 @@ const FeeReceipt = () => {
           />
         </Grid.Row>
         <Grid.Row style={{ height: "85%" }}>
-          <Grid.Column width="2"></Grid.Column>
-          <Grid.Column width="12">
+          <Grid.Column width="1"></Grid.Column>
+          <Grid.Column width="14">
             <KioskTable
-              tableTitle="Fee Receipt"
-              tableColWidth={[4, 8, 4]}
-              tableHead={["S.No.", "Section", "Fee"]}
-              tableData={[
-                ["1", "Academic", "1000"],
-                ["2", "Academic", "1000"],
-                ["3", "Academic", "1000"],
-                ["4", "Academic", "1000"],
-                ["5", "Ninja Skillz", "69"],
+              tableTitle="Your Performance"
+              tableColWidth={[1, 3, 6, 3, 3]}
+              tableHead={[
+                "S.No.",
+                "Course Code",
+                "Course Name",
+                "Grade Obtained",
+                "Credits",
               ]}
-              tableButton="Download as PDF"
+              tableData={[
+                ["1", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["2", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["3", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                ["4", "UCS616", "Artificial Intelligence", "C", "4.5"],
+                [
+                  "5",
+                  "UCS619",
+                  "Computer Architecture & Organisation",
+                  "D",
+                  "4.5",
+                ],
+              ]}
             />
           </Grid.Column>
-          <Grid.Column width="2"></Grid.Column>
+          <Grid.Column width="1"></Grid.Column>
         </Grid.Row>
       </Grid>
     </React.Fragment>
   );
 };
 
-export default FeeReceipt;
+export default ExamGrades;

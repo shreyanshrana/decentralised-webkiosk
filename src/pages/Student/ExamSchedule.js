@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import { KioskTable } from "../Components/KioskTable/KioskTable";
+import { KioskTable } from "../../Components/KioskTable/KioskTable";
 
 const ExamSchedule = () => {
   return (

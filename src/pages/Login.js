@@ -1,18 +1,31 @@
-import React, { useState } from "react";
-import { Grid, Form, Button, Select } from "semantic-ui-react";
+import React, { useState, useContext } from "react";
+import { Grid, Form, Button, Select, Input, Message } from "semantic-ui-react";
 import logo from "../img/tiet.png";
 import "../styles/Login.scss";
+import { UserContext } from "../context/UserContext";
 
 export const Login = (props) => {
+  const { setUserType } = useContext(UserContext);
   const [eno, setEno] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
+  const [hasError, setError] = useState(false);
   const submitEvent = (event) => {
     event.preventDefault();
-    if (type === "student" && eno === "101703524" && password === "12345") {
+    setError(false);
+    if (type === "student" && eno === "123" && password === "123") {
       console.log("correct");
+      // console.log(context);
+      setUserType(type);
       props.history.push("/");
-    } else alert("Wrong");
+    } else if (type === "teacher" && eno === "121" && password === "121") {
+      console.log("correct");
+      // console.log(context);
+      setUserType(type);
+      props.history.push("/");
+    } else {
+      setError(true);
+    }
   };
   return (
     <div>
@@ -27,13 +40,6 @@ export const Login = (props) => {
                   alt="Thapar Institue of Engineering & Technology"
                 />
               </Grid.Column>
-              {/* <Grid.Column width="8" style={{ padding: "0" }}>
-                <h3>
-                  Thapar <br />
-                  Institue of
-                  <br /> Engineering & Technology
-                </h3>
-              </Grid.Column> */}
             </Grid>
           </div>
         </Grid.Column>
@@ -61,7 +67,7 @@ export const Login = (props) => {
               />
               <Form.Field width="16">
                 <label>Enrollment Number</label>
-                <input
+                <Input
                   placeholder="Your enrollment number"
                   value={eno}
                   required
@@ -82,6 +88,11 @@ export const Login = (props) => {
                   }}
                 />
               </Form.Field>
+
+              <Message negative visible={hasError} hidden={!hasError}>
+                <p>Invalid Credentials</p>
+              </Message>
+
               <div className="Login__Form-CenterButton">
                 <Button type="submit">Login</Button>
               </div>
