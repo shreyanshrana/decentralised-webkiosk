@@ -1,49 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
 import SRSQuestions from "../../Components/SRSQuestions/SRSQuestions";
+import StudentInfo from "./StudentInfo";
+import { StudentContext } from "../../context/StudentContext";
 
-const Teachers = [
-  {
-    key: "Operating System (Lecture)",
-    text: "Operating System (Lecture)",
-    value: "Operating System (L)",
-  },
-  {
-    key: "Operating System (Practical)",
-    text: "Operating System (Practical)",
-    value: "Operating System (P)",
-  },
-  {
-    key: "Computer Architecture & Organisation (Lecture)",
-    text: "Computer Architecture & Organisation (Lecture)",
-    value: "Computer Architecture & Organisation (L)",
-  },
-  {
-    key: "Computer Architecture & Organisation (Practical)",
-    text: "Computer Architecture & Organisation (Practical)",
-    value: "Computer Architecture & Organisation (P)",
-  },
-
-  {
-    key: "Applied Physics (Lecture)",
-    text: "Applied Physics (Lecture)",
-    value: "Applied Physics (L)",
-  },
-  {
-    key: "Applied Physics (Tutorial)",
-    text: "Applied Physics (Tutorial)",
-    value: "Applied Physics (T)",
-  },
-  {
-    key: "Applied Physics (Practical)",
-    text: "Applied Physics (Practical)",
-    value: "Applied Physics (P)",
-  },
-];
+let Teachers = [];
 
 const SRS = () => {
   const [teacher, setTeacher] = useState("");
-
+  const { student } = useContext(StudentContext);
+  // console.log(student["SRS"]);
+  Teachers = [];
+  Object.entries(student["PendingSRS"]).map((subject) => {
+    Teachers.push({
+      key: subject[0],
+      text: subject[1].Name,
+      value: subject[1].TeacherID,
+    });
+  });
+  console.log(Teachers);
   return (
     <div>
       <Grid style={{ height: "94%" }}>
@@ -66,6 +41,7 @@ const SRS = () => {
               selection
               options={Teachers}
               onChange={(event, data) => {
+                console.log(data.value);
                 setTeacher(data.value);
               }}
             />
@@ -75,7 +51,12 @@ const SRS = () => {
         <Grid.Row style={{ height: "85%" }}>
           <Grid.Column width="1"></Grid.Column>
           <Grid.Column width="14">
-            <SRSQuestions type={teacher.substr(-2, 1)} />
+            <SRSQuestions
+              type="P"
+              teacherID={teacher}
+              studentID={student["RollNo"]}
+              batch={student["Batch"]}
+            />
           </Grid.Column>
           <Grid.Column width="1"></Grid.Column>
         </Grid.Row>

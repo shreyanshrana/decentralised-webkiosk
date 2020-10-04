@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { StudentContext } from "../../context/StudentContext";
 
 const StudentInfo = () => {
+  const { student } = useContext(StudentContext);
   return (
     <React.Fragment>
       <Grid>
@@ -24,22 +26,16 @@ const StudentInfo = () => {
               tableColWidth={[6, 6]}
               tableHead={["", ""]}
               tableData={[
-                ["Name  ", "Shreyansh Rana"],
-                ["Enrollment Number  ", "101703524"],
-                ["Email ID  ", "srana_be17@thapar.edu"],
-                ["Mobile Number  ", "8146547717"],
+                ["Name  ", student["Name"]],
+                ["Enrollment Number  ", student["RollNo"]],
+                ["Email ID  ", student["Email"]],
+                ["Mobile Number  ", student["Mobile Number"]],
 
-                ["Scholarships (if any)  ", "None"],
-                ["Current CGPA", "7.69"],
-                ["Name  ", "Shreyansh Rana"],
-                [
-                  "Awards and Achievements  ",
-                  "Ninja Coding (Winner); SIH 2019 (Finalist)",
-                ],
-                [
-                  "Previous Academic Performances  ",
-                  "10th (95%); 12th (88.8%)",
-                ],
+                ["Scholarships (if any)  ", student["Scholarships"]],
+                ["Current CGPA", student["CGPA"]],
+                ["Awards and Achievements  ", student["Awards"]],
+                ["Class X Performance  ", student["Class X Performance"]],
+                ["Class XII Performance  ", student["Class XII Performance"]],
               ]}
             />
           </Grid.Column>

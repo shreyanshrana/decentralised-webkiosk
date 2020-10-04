@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Info from "../../Components/Info/Info";
 import MPWidget from "../../Components/MarksPrevWdgt/MarksPrevWdgt";
 import { Grid } from "semantic-ui-react";
 import AttendancePreview from "../../Components/AttendancePreview/AttendancePreview";
+import { StudentContext } from "../../context/StudentContext";
 
 const Dashboard = () => {
+  const { student } = useContext(StudentContext);
+
+  console.log(student);
+
   return (
     <React.Fragment>
       <div style={{ height: "94%" }}>
@@ -13,19 +18,22 @@ const Dashboard = () => {
             {/* <Grid.Column width="1"></Grid.Column>
             <Grid.Column width="14"> */}
             <Info
-              name="Shreyansh Rana"
-              rollno="101703524"
-              degree="Bachelor of Technology"
-              branch="COE"
-              year="2021"
-              email="shreyanshrana@gmail.com"
+              name={student.Name}
+              rollno={student.RollNo}
+              degree={student.Degree}
+              branch={student.Branch}
+              year={student.Year}
+              email={student.Email}
             />
             {/* </Grid.Column>
             <Grid.Column width="1"></Grid.Column> */}
           </Grid.Row>
           <Grid.Row style={{ padding: "15px", paddingBottom: "0" }}>
             <Grid.Column width="6" style={{ paddingLeft: "0" }}>
-              <AttendancePreview present="10" total="20" />
+              <AttendancePreview
+                present={student["Classes Present"]}
+                total={student["Total Classes"]}
+              />
             </Grid.Column>
             <Grid.Column width="10" style={{ paddingRight: "0" }}>
               <MPWidget />

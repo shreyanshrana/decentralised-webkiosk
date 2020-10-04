@@ -4,28 +4,39 @@ import logo from "../img/tiet.png";
 import "../styles/Login.scss";
 import { UserContext } from "../context/UserContext";
 
+import firebase from "../firebase";
+import { StudentContext } from "../context/StudentContext";
+import { TeacherContext } from "../context/TeacherContext";
+
 export const Login = (props) => {
   const { setUserType } = useContext(UserContext);
+  const { setStudent } = useContext(StudentContext);
+  const { setTeacher } = useContext(TeacherContext);
   const [eno, setEno] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
   const [hasError, setError] = useState(false);
-  const submitEvent = (event) => {
+  const submitEvent = async (event) => {
     event.preventDefault();
     setError(false);
-    if (type === "student" && eno === "123" && password === "123") {
-      console.log("correct");
-      // console.log(context);
-      setUserType(type);
-      props.history.push("/");
-    } else if (type === "teacher" && eno === "121" && password === "121") {
-      console.log("correct");
-      // console.log(context);
-      setUserType(type);
-      props.history.push("/");
-    } else {
-      setError(true);
-    }
+    // if (type === "student" && eno === "123" && password === "123") {
+    console.log("correct");
+    // console.log(context);
+    setUserType("teacher");
+    let data = await firebase.getStudentData("101703524");
+    await setStudent(data);
+    data = await firebase.getTeacherData("101010");
+    setTeacher(data);
+    props.history.push("/");
+    // } else if (type === "teacher" && eno === "121" && password === "121") {
+    // console.log("correct");
+    // console.log(context);
+    // setUserType(type);
+    // props.history.push("/");
+    // } else {
+    // setError(true);
+    // }
+    // firebase.getStudentData("101703520");
   };
   return (
     <div>
@@ -70,7 +81,7 @@ export const Login = (props) => {
                 <Input
                   placeholder="Your enrollment number"
                   value={eno}
-                  required
+                  // required
                   onChange={(event) => {
                     setEno(event.target.value);
                   }}
@@ -82,7 +93,7 @@ export const Login = (props) => {
                   placeholder="Your password"
                   type="password"
                   value={password}
-                  required
+                  // required
                   onChange={(event) => {
                     setPassword(event.target.value);
                   }}

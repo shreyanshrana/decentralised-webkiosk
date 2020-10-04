@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { StudentContext } from "../../context/StudentContext";
 
+let timeTableDB = [];
 const TimeTable = () => {
+  const { student } = useContext(StudentContext);
+  // console.log(student["Time Table"]);
+  Object.entries(student["Time Table"]).map((time) => {
+    timeTableDB.push([
+      time[0],
+      time[1].Mon,
+      time[1].Tue,
+      time[1].Wed,
+      time[1].Thur,
+      time[1].Fri,
+      time[1].Sat,
+    ]);
+  });
+  timeTableDB.sort();
+  // console.log(timeTableDB);
   return (
     <React.Fragment>
       <Grid style={{ height: "94%" }}>
@@ -23,98 +40,7 @@ const TimeTable = () => {
               tableTitle="Semester Time Table"
               tableColWidth={[3, 2, 2, 2, 2, 2, 2]}
               tableHead={["Time", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"]}
-              tableData={[
-                [
-                  "8 AM",
-                  "Computer Architecture (L) A-101",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "9 AM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "10 AM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "11 AM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "12 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "1 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "2 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "3 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "4 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-                [
-                  "5 PM",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                  "Computer Architecture",
-                ],
-              ]}
+              tableData={timeTableDB}
             />
           </Grid.Column>
           <Grid.Column width="1"></Grid.Column>

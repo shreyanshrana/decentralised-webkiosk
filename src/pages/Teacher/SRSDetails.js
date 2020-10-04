@@ -1,64 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { TeacherContext } from "../../context/TeacherContext";
 
-const AcademicSessions = [
-  {
-    key: "1920ODDSEM-MST",
-    text: "1920ODDSEM-MST",
-    value: "1920ODDSEM-MST",
-  },
-  {
-    key: "1920ODDSEM-EST",
-    text: "1920ODDSEM-EST",
-    value: "1920ODDSEM-EST",
-  },
+let AcademicSessions = [];
 
-  {
-    key: "1920EVENSEM-MST",
-    text: "1920EVENSEM-MST",
-    value: "1920EVENSEM-MST",
-  },
-  {
-    key: "1920EVENSEM-EST",
-    text: "1920EVENSEM-EST",
-    value: "1920EVENSEM-EST",
-  },
-];
-
-let table = [
-  {
-    "1920EVENSEM-EST": [
-      ["1", "Software Engineering", "5", "-", "5", "5"],
-      ["2", "Computer Networks", "5", "-", "5", "5"],
-      ["3", "Computer Architecture & Organisation", "5", "-", "5", "5"],
-    ],
-    "1920EVENSEM-MST": [
-      ["1", "Software Engineering", "5", "-", "4", "4.5"],
-      ["2", "Computer Networks", "5", "-", "5", "5"],
-      ["3", "Computer Architecture & Organisation", "5", "-", "5", "5"],
-    ],
-    "1920ODDSEM-EST": [
-      ["1", "Software Engineering", "5", "-", "5", "5"],
-      ["2", "Artificial Intelligence", "5", "-", "5", "5"],
-      ["3", "Microprocessors", "5", "-", "5", "5"],
-      ["4", "Advanced Software Engineering", "-", "-", "4", "4"],
-    ],
-    "1920ODDSEM-MST": [
-      ["1", "Software Engineering", "5", "-", "5", "5"],
-      ["2", "Artificial Intelligence", "5", "-", "5", "5"],
-      ["3", "Microprocessors", "5", "-", "5", "5"],
-      ["4", "Advanced Software Engineering", "-", "-", "5", "5"],
-    ],
-  },
-];
-
-let tableVal = [
-  ["1", "Software Engineering", "5", "-", "5", "5"],
-  ["2", "Computer Networks", "5", "-", "5", "5"],
-  ["3", "Computer Architecture & Organisation", "5", "-", "5", "5"],
-];
+let tableVal = [];
 const SRSDetails = () => {
+  const { teacher } = useContext(TeacherContext);
+  // console.log(teacher["SRS"]);
+  AcademicSessions = [];
+  Object.entries(teacher["SRS"]).map((year) => {
+    AcademicSessions.push({
+      key: year[0],
+      text: year[0],
+      value: year[0],
+    });
+  });
+  // console.log(AcademicSessions);
   const [session, setSession] = useState("1920EVENSEM-EST");
   return (
     <React.Fragment>
@@ -87,11 +46,16 @@ const SRSDetails = () => {
             onChange={(event, data) => {
               setSession(data.value);
               let temp = data.value;
-              //   console.log(temp);
-              //   console.log(table[0]);
-              //   console.log(table[0][temp]);
-              tableVal = table[0][temp];
+              tableVal = [];
+              Object.entries(teacher["SRS"][data.value]).map((batch) => {
+                tableVal.push(["1", batch[0], batch[1]]);
+                // console.log(batch);
+              });
+              // tableVal = table[0][temp];
             }}
+            // onClick={() => {
+            //   console.log(AcademicSessions);
+            // }}
           />
         </Grid.Row>
         <Grid.Row>
@@ -99,8 +63,8 @@ const SRSDetails = () => {
           <Grid.Column width="12">
             <KioskTable
               tableTitle=""
-              tableColWidth={[1, 6, 2, 2, 2, 3]}
-              tableHead={["S.No.", "Subject", "L", "T", "P", "LTP"]}
+              tableColWidth={[3, 9, 4]}
+              tableHead={["S.No.", "Batch", "Score"]}
               tableData={tableVal}
             />
           </Grid.Column>

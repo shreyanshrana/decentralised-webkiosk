@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { StudentContext } from "../../context/StudentContext";
 
+let SGPADB = [];
 const CGPA = () => {
   const [session] = useState("2021ODDSEM");
+  const { student } = useContext(StudentContext);
+  SGPADB = [];
+  Object.entries(student["SGPA"]).map((SGPA) => {
+    SGPADB.push([SGPA[0], SGPA[1], student["CGPA"]]);
+  });
+  SGPADB.sort();
+  console.log(SGPADB);
   return (
     <React.Fragment>
       <Grid style={{ height: "94%" }}>
@@ -22,21 +31,9 @@ const CGPA = () => {
           <Grid.Column width="12">
             <KioskTable
               tableTitle="Overall CGPA/SGPA"
-              tableColWidth={[2, 8, 3, 3]}
-              tableHead={[
-                "S.No.",
-                "Academic Session",
-                "SGPA Earned",
-                "Overall CGPA",
-              ]}
-              tableData={[
-                ["1", "1718ODDSEM", "8", "8"],
-                ["2", "1718EVENSEM", "8", "8"],
-                ["3", "1819ODDSEM", "8", "8"],
-                ["4", "1819EVENSEM", "8", "8"],
-                ["5", "1920ODDSEM", "8", "8"],
-                ["6", "1920EVENSEM", "8", "8"],
-              ]}
+              tableColWidth={[8, 4, 4]}
+              tableHead={["Academic Session", "SGPA Earned", "Overall CGPA"]}
+              tableData={SGPADB}
               tableButton="Download as PDF"
             />
           </Grid.Column>

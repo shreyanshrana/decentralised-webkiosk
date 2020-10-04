@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { StudentContext } from "../../context/StudentContext";
 
+let examDB = [];
 const ExamSchedule = () => {
+  const { student } = useContext(StudentContext);
+  console.log(student["Exam Schedule"]);
+  Object.entries(student["Exam Schedule"]).map((exam) => {
+    examDB.push([
+      exam[0],
+      exam[1].Date,
+      exam[1].Time,
+      exam[1].Subject,
+      exam[1].Room,
+    ]);
+    // console.log(exam);
+  });
+  examDB.sort();
+  console.log(examDB);
   return (
     <React.Fragment>
       <Grid>
@@ -24,35 +40,7 @@ const ExamSchedule = () => {
               tableTitle="Exam Schedule"
               tableColWidth={[2, 3, 2, 7, 2]}
               tableHead={["S.No.", "Date", "Time", "Subject", "Room"]}
-              tableData={[
-                [
-                  "1",
-                  "29-08-2020",
-                  "10:00 AM",
-                  "Computer Architecture",
-                  "A 808",
-                ],
-
-                [
-                  "2",
-                  "30-08-2020",
-                  "10:00 AM",
-                  "Artificial Intelligence",
-                  "A 908",
-                ],
-
-                ["3", "02-09-2020", "01:00 PM", "Matrix Computation", "A 808"],
-
-                [
-                  "4",
-                  "09-08-2020",
-                  "10:00 AM",
-                  "Financial Mathematics",
-                  "A 808",
-                ],
-
-                ["5", "12-08-2020", "10:00 AM", "Computer Networks", "A 808"],
-              ]}
+              tableData={examDB}
             />
           </Grid.Column>
           <Grid.Column width="1"></Grid.Column>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./SRSQuestions.scss";
 import { Grid, Dropdown, Button } from "semantic-ui-react";
+import firebase from "../../firebase";
 // import srs_svg from "../../img/undraw_key_points_ig28.svg";
 
 const score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -34,7 +35,7 @@ const Ques_P = [
   "Did the teacher use any digital medium to teach ?",
 ];
 
-const clickHandler = () => {
+const clickHandler = (teacher, student, batch) => {
   console.log(score);
   let sum = 0,
     count = 0;
@@ -44,7 +45,10 @@ const clickHandler = () => {
       count++;
     }
   });
+  console.log(teacher);
+  firebase.submitSRS(student, teacher, sum / count, "2021EVENSEM", batch);
   console.log(sum / count);
+  alert("Submission Successful");
 };
 const Question = (props) => {
   return (
@@ -68,6 +72,7 @@ const Question = (props) => {
   );
 };
 const SRSQuestions = (props) => {
+  console.log(props);
   return (
     <div className="SRSQuestions">
       <Grid>
@@ -92,7 +97,12 @@ const SRSQuestions = (props) => {
       </Grid>
       {props.type === "L" || props.type === "T" || props.type === "P" ? (
         <div className="perfectly-center">
-          <Button onClick={clickHandler} primary>
+          <Button
+            onClick={() => {
+              clickHandler(props.teacherID, props.studentID, props.batch);
+            }}
+            primary
+          >
             Submit
           </Button>
         </div>

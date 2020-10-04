@@ -58,7 +58,7 @@ const Navbar = (props) => {
                       Fill SRS
                     </Menu.Item>
                   </Link>
-                  <Link to="/previous-srs">
+                  {/* <Link to="/previous-srs">
                     <Menu.Item
                       name="previous-srs"
                       active={activeItem === "previous-srs"}
@@ -68,7 +68,7 @@ const Navbar = (props) => {
                     >
                       See Previous SRS
                     </Menu.Item>
-                  </Link>
+                  </Link> */}
                 </Menu.Menu>
               ) : (
                 <React.Fragment />

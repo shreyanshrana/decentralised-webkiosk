@@ -1,79 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Dropdown, Form, Button } from "semantic-ui-react";
+import firebase from "../../firebase";
+import { TeacherContext } from "../../context/TeacherContext";
 
-let batchList = {
-  "2": [
-    {
-      key: "2COE1",
-      text: "2COE1",
-      value: "2COE1",
-    },
-  ],
-  "3": [
-    {
-      key: "3COE11",
-      text: "3COE11",
-      value: "3COE11",
-    },
-    {
-      key: "3COE12",
-      text: "3COE12",
-      value: "3COE12",
-    },
-  ],
-  "4": [
-    {
-      key: "4COE1",
-      text: "4COE1",
-      value: "4COE1",
-    },
-  ],
-};
-
-let studentList = {
-  "2COE1": [
-    {
-      key: "Shreyansh Rana (101803524)",
-      text: "Shreyansh Rana (101803524)",
-      value: "101803524",
-    },
-  ],
-  "3COE11": [
-    {
-      key: "Shruti Sharma (10703527)",
-      text: "Shruti Sharma (10703527)",
-      value: "101703527",
-    },
-    {
-      key: "Shubham Goyal (101703530)",
-      text: "Shubham Goyal (101703530)",
-      value: "101703530",
-    },
-  ],
-  "3COE12": [
-    {
-      key: "Manmeet Kaur Chawla (101603329)",
-      text: "Manmeet Kaur Chawla (101603329)",
-      value: "101703329",
-    },
-  ],
-  "4COE1": [
-    {
-      key: "Rohit Mohanty (101603456)",
-      text: "Rohit Mohanty (101603456)",
-      value: "101603456",
-    },
-  ],
-};
+let branchList = [{ key: "COE", text: "COE", value: "COE" }];
+let studentList = [];
 
 const AcademicRecords = () => {
-  const [year, setYear] = useState("");
-  const [batch, setBatch] = useState("");
+  const { teacher } = useContext(TeacherContext);
+  const [branch, setBranch] = useState("");
   const [student, setStudent] = useState("");
-
-  const handleSubmit = () => {
-    if (year === "" || batch === "" || student === "")
-      alert("Kindly select a student");
+  const [est, setEST] = useState("");
+  const [mst, setMST] = useState("");
+  const [sessional, setSessional] = useState("");
+  firebase.getBranchList().then((res) => {
+    console.log(res);
+    branchList = [{}];
+    res.map((branch) => {
+      console.log(branch);
+      branchList.push({
+        key: branch,
+        text: branch,
+        value: branch,
+      });
+    });
+    console.log(branchList);
+  });
+  console.log(branchList);
+  const handleSubmit = async () => {
+    if (branch === "" || student === "") alert("Kindly select a student");
+    else {
+      const stu = await firebase.getStudentData(student);
+      await firebase.submitMarksChange(
+        stu["RollNo"],
+        teacher["Subject"],
+        mst,
+        est,
+        sessional
+      );
+    }
   };
   return (
     <React.Fragment>
@@ -90,40 +55,25 @@ const AcademicRecords = () => {
         </Grid.Row>
         <Grid.Row className="perfectly-center">
           <Dropdown
-            placeholder="Select Year"
-            //   fluid
-            style={{ marginRight: "50px" }}
-            selection
-            options={[
-              {
-                key: "Second Year",
-                text: "Second Year",
-                value: "2",
-              },
-              {
-                key: "Third Year",
-                text: "Third Year",
-                value: "3",
-              },
-              {
-                key: "Fourth Year",
-                text: "Fourth Year",
-                value: "4",
-              },
-            ]}
-            onChange={(event, data) => {
-              setYear(data.value);
-            }}
-          />
-          <Dropdown
             style={{ marginLeft: "" }}
-            placeholder="Select Batch"
+            placeholder="Select Branch"
             //   fluid
             selection
-            options={batchList[year]}
-            onChange={(event, data) => {
-              setBatch(data.value);
+            options={branchList}
+            onChange={async (event, data) => {
+              setBranch(data.value);
+              studentList = [];
+              (await firebase.getStudentList(data.value)).map((stu) => {
+                studentList.push({
+                  key: stu,
+                  text: stu,
+                  value: stu,
+                });
+              });
               //   alert(data.value);
+            }}
+            onClick={() => {
+              console.log(branchList);
             }}
           />
           <Dropdown
@@ -132,9 +82,15 @@ const AcademicRecords = () => {
             style={{ marginLeft: "50px" }}
             selection
             search
-            options={studentList[batch]}
-            onChange={(event, data) => {
+            options={studentList}
+            onChange={async (event, data) => {
               setStudent(data.value);
+              const stu = await firebase.getStudentData(data.value);
+              const subject = teacher["Subject"];
+              console.log(stu["Marks"]["SEM1"][subject]);
+              setMST(stu["Marks"]["SEM1"][subject]["MST"]);
+              setSessional(stu["Marks"]["SEM1"][subject]["Sessional"]);
+              setEST(stu["Marks"]["SEM1"][subject]["EST"]);
               //   alert(data.value);
             }}
           />
@@ -167,15 +123,33 @@ const AcademicRecords = () => {
                 <Form style={{ width: "100%", textAlign: "left" }}>
                   <Form.Field>
                     <label>MST Score</label>
-                    <input placeholder="Score in MST" />
+                    <input
+                      placeholder="Score in MST"
+                      onChange={(event) => {
+                        setMST(event.target.value);
+                      }}
+                      value={mst}
+                    />
                   </Form.Field>
                   <Form.Field>
                     <label>Sessional Score</label>
-                    <input placeholder="Score in sessional" />
+                    <input
+                      placeholder="Score in sessional"
+                      onChange={(event) => {
+                        setSessional(event.target.value);
+                      }}
+                      value={sessional}
+                    />
                   </Form.Field>
                   <Form.Field>
                     <label>EST Score</label>
-                    <input placeholder="Score in EST" />
+                    <input
+                      placeholder="Score in EST"
+                      onChange={(event) => {
+                        setEST(event.target.value);
+                      }}
+                      value={est}
+                    />
                   </Form.Field>
                   <Button
                     type="submit"

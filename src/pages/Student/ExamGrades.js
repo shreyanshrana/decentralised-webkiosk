@@ -1,43 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Dropdown } from "semantic-ui-react";
 import { KioskTable } from "../../Components/KioskTable/KioskTable";
+import { StudentContext } from "../../context/StudentContext";
 
-const AcademicSessions = [
-  {
-    key: "1718ODDSEM",
-    text: "1718ODDSEM",
-    value: "1718ODDSEM",
-  },
-  {
-    key: "1718EVENSEM",
-    text: "1718EVENSEM",
-    value: "1718EVENSEM",
-  },
-  {
-    key: "1819ODDSEM",
-    text: "1819ODDSEM",
-    value: "1819ODDSEM",
-  },
-  {
-    key: "1819EVENSEM",
-    text: "1819EVENSEM",
-    value: "1819EVENSEM",
-  },
-
-  {
-    key: "1920ODDSEM",
-    text: "1920ODDSEM",
-    value: "1920ODDSEM",
-  },
-  {
-    key: "1920EVENSEM",
-    text: "1920EVENSEM",
-    value: "1920EVENSEM",
-  },
-];
+let AcademicSessions = [];
 const ExamGrades = () => {
+  const { student } = useContext(StudentContext);
+  const [tableDB, setTableDB] = useState([]);
   const [session, setSession] = useState("1920EVENSEM");
-
+  AcademicSessions = [];
+  Object.entries(student["Marks"]).map((year) => {
+    // console.log(year[0]);
+    AcademicSessions.push({
+      key: year[0],
+      text: year[0],
+      value: year[0],
+    });
+  });
+  AcademicSessions.sort();
+  console.log(AcademicSessions);
   return (
     <React.Fragment>
       <Grid style={{ height: "94%" }}>
@@ -59,6 +40,17 @@ const ExamGrades = () => {
             options={AcademicSessions}
             onChange={(event, data) => {
               setSession(data.value);
+              let sem = data.value;
+              const courses = student.Marks[sem];
+              let tableVal = [];
+              // console.log(courses);
+              // console.log(Object.entries(courses));
+              Object.entries(courses).forEach((course) => {
+                console.log(course);
+                tableVal.push([course[0], course[1].Name, course[1].Grade]);
+              });
+              console.log(tableVal);
+              setTableDB(tableVal);
             }}
           />
         </Grid.Row>
@@ -67,27 +59,9 @@ const ExamGrades = () => {
           <Grid.Column width="14">
             <KioskTable
               tableTitle="Your Performance"
-              tableColWidth={[1, 3, 6, 3, 3]}
-              tableHead={[
-                "S.No.",
-                "Course Code",
-                "Course Name",
-                "Grade Obtained",
-                "Credits",
-              ]}
-              tableData={[
-                ["1", "UCS616", "Artificial Intelligence", "C", "4.5"],
-                ["2", "UCS616", "Artificial Intelligence", "C", "4.5"],
-                ["3", "UCS616", "Artificial Intelligence", "C", "4.5"],
-                ["4", "UCS616", "Artificial Intelligence", "C", "4.5"],
-                [
-                  "5",
-                  "UCS619",
-                  "Computer Architecture & Organisation",
-                  "D",
-                  "4.5",
-                ],
-              ]}
+              tableColWidth={[4, 8, 4]}
+              tableHead={["Course Code", "Course Name", "Grade Obtained"]}
+              tableData={tableDB}
             />
           </Grid.Column>
           <Grid.Column width="1"></Grid.Column>
