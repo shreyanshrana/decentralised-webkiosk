@@ -19,23 +19,33 @@ export const Login = (props) => {
   const submitEvent = async (event) => {
     event.preventDefault();
     setError(false);
-    // if (type === "student" && eno === "123" && password === "123") {
-    console.log("correct");
+    if (type === "teacher" && eno === "101010") {
+      setUserType(type);
+      console.log("correct");
+      let data = await firebase.getTeacherData("101010");
+      setTeacher(data);
+      props.history.push("/");
+    } else if (type === "teacher" && eno === "101011") {
+      setUserType(type);
+      // console.log("correct");
+      let data = await firebase.getTeacherData("101011");
+      setTeacher(data);
+      props.history.push("/");
+    } else if (type === "student" && eno === "101703524") {
+      setUserType(type);
+      // console.log("correct");
+      let data = await firebase.getStudentData(eno);
+      setStudent(data);
+      props.history.push("/");
+    }
     // console.log(context);
-    setUserType("teacher");
-    let data = await firebase.getStudentData("101703524");
-    await setStudent(data);
-    data = await firebase.getTeacherData("101010");
-    setTeacher(data);
-    props.history.push("/");
     // } else if (type === "teacher" && eno === "121" && password === "121") {
     // console.log("correct");
     // console.log(context);
-    // setUserType(type);
     // props.history.push("/");
-    // } else {
-    // setError(true);
-    // }
+    else {
+      setError(true);
+    }
     // firebase.getStudentData("101703520");
   };
   return (

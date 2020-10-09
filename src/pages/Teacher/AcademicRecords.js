@@ -38,6 +38,7 @@ const AcademicRecords = () => {
         est,
         sessional
       );
+      alert("Successfully Updated");
     }
   };
   return (
@@ -116,7 +117,7 @@ const AcademicRecords = () => {
                 }}
               >
                 <Grid.Column width="4"></Grid.Column>
-                <Grid.Column width="8">{student}</Grid.Column>
+                <Grid.Column width="8">{teacher["Subject"]}</Grid.Column>
                 <Grid.Column width="4"></Grid.Column>
               </Grid.Row>
               <Grid.Row>

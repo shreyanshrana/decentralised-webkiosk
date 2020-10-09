@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "semantic-ui-react";
+import { TeacherContext } from "../../context/TeacherContext";
 
 const TeachersDashboard = () => {
+  const { teacher } = useContext(TeacherContext);
   return (
     <React.Fragment>
       <div style={{ height: "94%" }}>
@@ -17,7 +19,7 @@ const TeachersDashboard = () => {
               }}
             >
               <Grid.Row className="InfoWidget__Name">
-                <Grid.Column width="sixteen">Dr. Inderveer Channa</Grid.Column>
+                <Grid.Column width="sixteen">{teacher.Name}</Grid.Column>
               </Grid.Row>
               <Grid.Row className="perfectly-center">
                 <div className="InfoWidget__Rectangle " />
@@ -31,11 +33,11 @@ const TeachersDashboard = () => {
               </Grid.Row>
 
               <Grid.Row className="perfectly-center InfoWidget__Details">
-                <Grid.Column width="3">101010101</Grid.Column>
-                <Grid.Column width="3">inderveer@thapar.edu</Grid.Column>
-                <Grid.Column width="3">Dean of Student Affairs</Grid.Column>
-                <Grid.Column width="3">Computer Science</Grid.Column>
-                <Grid.Column width="3">2000</Grid.Column>
+                <Grid.Column width="3">{teacher.ENo}</Grid.Column>
+                <Grid.Column width="3">{teacher.Email}</Grid.Column>
+                <Grid.Column width="3">{teacher.Designation}</Grid.Column>
+                <Grid.Column width="3">{teacher.Department}</Grid.Column>
+                <Grid.Column width="3">{teacher.WorkingSince}</Grid.Column>
               </Grid.Row>
             </Grid>
             {/* </Grid.Column>
