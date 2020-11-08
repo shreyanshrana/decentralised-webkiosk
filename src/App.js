@@ -31,11 +31,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
+        <Route path="/loaderio-d62a3851f0dcfa243a5888114bbbd680" component={loaderio} />
           {userType === "new" ? (
-            <Switch>
+            // <Switch>
               <Route exact path="/" component={Login} />
-              <Route path="/loaderio-d62a3851f0dcfa243a5888114bbbd680" component={loaderio} />
-            </Switch>
+            // </Switch>
           ) : (
             <Route path="/" component={Comp} />
           )}
