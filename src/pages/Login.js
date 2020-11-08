@@ -8,6 +8,13 @@ import firebase from "../firebase";
 import { StudentContext } from "../context/StudentContext";
 import { TeacherContext } from "../context/TeacherContext";
 
+import Web3 from "web3";
+ import {AuthContractABI} from "../abi/abis";
+ 
+ const web3 = new Web3(Web3.givenProvider);
+ const contractAddr = '0x531BbEd9Acdd737D16E52099d623D7afFa509707';
+ const AuthContract = new web3.eth.Contract(AuthContractABI, contractAddr);
+ 
 export const Login = (props) => {
   const { setUserType } = useContext(UserContext);
   const { setStudent } = useContext(StudentContext);
@@ -19,19 +26,15 @@ export const Login = (props) => {
   const submitEvent = async (event) => {
     event.preventDefault();
     setError(false);
-    if (type === "teacher" && eno === "101010") {
+    const result = await AuthContract.methods.verifyUser(eno, password, type).call();
+    console.log(result);
+    if (result && type === "teacher") {
       setUserType(type);
       console.log("correct");
-      let data = await firebase.getTeacherData("101010");
+      let data = await firebase.getTeacherData(eno);
       setTeacher(data);
       props.history.push("/");
-    } else if (type === "teacher" && eno === "101011") {
-      setUserType(type);
-      // console.log("correct");
-      let data = await firebase.getTeacherData("101011");
-      setTeacher(data);
-      props.history.push("/");
-    } else if (type === "student" && eno === "101703524") {
+    } else if (type === "student" && result) {
       setUserType(type);
       // console.log("correct");
       let data = await firebase.getStudentData(eno);
