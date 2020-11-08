@@ -6,7 +6,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { UserContext } from "./context/UserContext";
-import { loaderio } from "./pages/loaderio-d62a3851f0dcfa243a5888114bbbd680";
 
 const Comp = () => {
   return (
@@ -31,11 +30,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-        <Route path="/loaderio-d62a3851f0dcfa243a5888114bbbd680" component={loaderio} />
           {userType === "new" ? (
-            // <Switch>
-              <Route exact path="/" component={Login} />
-            // </Switch>
+            <Route path="/" component={Login} />
           ) : (
             <Route path="/" component={Comp} />
           )}
