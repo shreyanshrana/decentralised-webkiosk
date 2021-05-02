@@ -1,0 +1,38 @@
+@import "./color.scss";
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $secondary-white !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary !important;
+}
+
+body.dark-theme {
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $primary-black !important;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $secondary !important;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $primary !important;
+  }
+}

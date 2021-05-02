@@ -1,0 +1,47 @@
+@import "./styles/scrollbar.scss";
+@import "./styles/color.scss";
+@import "./styles/Dropdown.scss";
+
+//Semantic Font issue
+* :not(i) {
+  font-family: "rawline", sans-serif !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+  &:focus {
+    outline: none;
+  }
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary-white;
+  color: $primary-black;
+}
+
+.ui.grid {
+  margin: 0 !important;
+}
+
+.perfectly-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column;
+}
+
+.clearfix {
+  overflow: auto;
+}

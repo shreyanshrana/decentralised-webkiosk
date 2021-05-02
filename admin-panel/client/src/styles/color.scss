@@ -1,0 +1,41 @@
+// Primary
+$primary: #cb2d3e;
+
+//White
+$primary-white: #eff2f9;
+$secondary-white: #eee;
+
+//Black
+$primary-black: #0a090c;
+$secondary-black: lighten($primary-black, 5%);
+
+// Secondary
+$secondary: #ef473a;
+
+// Error
+$error-light: #e57373;
+$error-main: #f44336;
+$error-dark: #d32f2f;
+
+// Warning
+$warning-light: #ffb74d;
+$warning-main: #ff9800;
+$warning-dark: #f57c00;
+
+// Info
+$info-light: #64b5f6;
+$info-main: #2196f3;
+$info-dark: #1976d2;
+
+// Success
+$success-light: #81c784;
+$success-main: #4caf50;
+$success-dark: #388e3c;
+
+//Light Background
+$bg-light-1: #ffffff;
+$bg-light-2: #eff2f9;
+
+//Dark Background
+$bg-dark-1: #0d1959;
+$bg-dark-2: #0a0039;

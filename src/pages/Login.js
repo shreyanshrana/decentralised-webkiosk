@@ -12,7 +12,7 @@ import Web3 from "web3";
  import {AuthContractABI} from "../abi/abis";
  
  const web3 = new Web3(Web3.givenProvider);
- const contractAddr = '0x531BbEd9Acdd737D16E52099d623D7afFa509707';
+ const contractAddr = '0xa0AE00443D7754174965Bb89008eF6A74c77C272';
  const AuthContract = new web3.eth.Contract(AuthContractABI, contractAddr);
  
 export const Login = (props) => {
